@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[colorlinks=true]{hyperref}
+
+\begin{document}
+\begin{center}
+  {\bfseries Assignment \#3}\\
+  Introduction to GR, 2020 Fall\\
+  International Centre for Theoretical Sciences\\
+  Instructor: Prof. Bala Iyer, Tutor: Md Arif Shaikh\footnote{\href{mailto: arif.shaikh@icts.res.in}{arif.shaikh@icts.res.in}}\\
+  Due on October 18, 2020 11:59 PM.
+\end{center}
+\hrule
+
+\begin{enumerate}
+\item Problem 7.1, 7.3, 7.6, 7.7, 7.10, 7.11, 7.14 from Exercise of Chapter 7 of D'Inverno's book.
+\item
+  \begin{enumerate}
+  \item Let $x^\alpha(\lambda)$ describe a timelike geodesic parametrized by a nonaffine parameter $\lambda$, and let $t^\alpha = dx^\alpha/d\lambda$ be the geodesic's tangent vector. Calculate how $\varepsilon \equiv -t_\alpha t^\alpha$ changes as a function of $\lambda$.
+  \item Let $\xi^\alpha$ be a Killing vector. Calculate how $p \equiv \xi_\alpha t^\alpha$ changes as a function of $\lambda$ on the same geodesic.
+  \item Let $b^\alpha$ be such that in a spacetime with metric $g_{\alpha\beta}$, $\pounds_b g_{\alpha\beta}=2c g_{\alpha\beta}$, where $c$ is a constant. Let $x^\alpha(\tau)$ describe a timelike geodesic parametrized by proper time $\tau$, and let $u^\alpha = dx^\alpha/d\tau$ be the four-velocity. Calculate how $q\equiv b_\alpha u^\alpha$ changes with $\tau$.
+  \end{enumerate}
+  
+  \item Prove that
+    \begin{equation}
+      \label{eq:Killing-vectors-sph}
+      \xi^\alpha_{1} = \sin\phi\partial_\theta + \cot\theta\cos\phi\partial_\phi\qquad \xi^\alpha_{2} = - \cos\phi\partial_\theta + \cot\theta\sin\phi\partial_\phi
+    \end{equation}
+    are the Killing vectors of the spherically symmetric spacetime
+    \begin{equation}
+      \label{eq:line-element-spherically-symmetric}
+      ds^2 = -A(r)dt^2 + B(r)dr^2 + r^2 (d\theta^2 + \sin^2\theta d\phi^2)
+    \end{equation}
+
+  \item A particle with electric charge $e$ moves in a spacetime with metric $g_{\alpha\beta}$ in the presence of a vector potential $A_\alpha$. The equations of motion are $u^\beta \nabla_\beta u_\alpha = e F_{\alpha\beta}u^\beta$, where $u^\alpha$ is the four-velocity and $F_{\alpha\beta}=\nabla_\alpha A_\beta - \nabla_\beta A_\alpha$. It is assumed that the spacetime possesses a Killing vector $\xi^\alpha$, so that $\pounds_\xi g_{\alpha\beta} = \pounds_\xi A_\alpha = 0$. Prove that
+    \begin{equation}
+      \label{eq:conserved-quantity-em-field}
+      (u_\alpha + e A_\alpha)\xi^\alpha
+    \end{equation}
+    is constant on the world line of the of the charged particle.
+
+  \item A particle moving on a circular orbit in a stationary, axially symmetric spacetime is subjected to a dissipative force which drives it to another, slightly smaller, circular orbit. During the transition, the particle loses an amount $\delta \tilde{E}$ of orbital energy (per unit rest mass) and an amount $\delta \tilde{L}$ of orbital angular momentum (per unit rest mass). Show that these quantities are related by $\delta\tilde{E} = \Omega \delta\tilde{L}$, where $\Omega$ is the particle's original angular velocity.
+
+    {\itshape Hints:} Express the four-velocity $u^\alpha$ of the particle in terms of the Killing vectors, energy angular momentum and orbital velocity. Find the variation $\delta u^\alpha$. Use the normalization condition $u_\alpha u^\alpha = -1$.
+\end{enumerate}
+\end{document}
