@@ -6,5 +6,5 @@ Tutor: Md Arif Shaikh<br>
 Refs: D'Inverno
 
 # Assignments
-1. [Assignment 2](./blob/master/Assignment_2_icts_igr_2020_fall.pdf)
-2. [Assignment 3](./blob/master/Assignment_3_icts_igr_2020_fall.pdf)
+1. [Assignment 2](./Assignment_2_icts_igr_2020_fall.pdf)
+2. [Assignment 3](./Assignment_3_icts_igr_2020_fall.pdf)
