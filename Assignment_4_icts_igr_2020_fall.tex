@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[colorlinks=true]{hyperref}
+
+\begin{document}
+\begin{center}
+  {\bfseries Assignment \#4}\\
+  Introduction to GR, 2020 Fall\\
+  International Centre for Theoretical Sciences\\
+  Instructor: Prof. Bala Iyer, Tutor: Md Arif Shaikh\footnote{\href{mailto: arif.shaikh@icts.res.in}{arif.shaikh@icts.res.in}}\\
+  Due on November 1, 2020 11:59 PM.
+\end{center}
+\hrule
+
+\begin{enumerate}
+\item From d'Inverno's book, 10.3, 10.5, 10.6, 10.7, 10.8, 10.9, 10.10.
+\item From d'Inverno's book, 12.2, 12.4, 12.5, 12.6, 12.9, 12.10, 12.11, 12.12.
+\item From d'Inverno's book, 14.1, 14.2, 14.6, 14.9, 14.13, 14.14, 14.15.
+\item
+  \begin{enumerate}
+  \item Consider a spacetime with a Killing vector $\xi$. Show that if
+    the energy-momentum tensor $T^{\mu\nu}$ satisfies the conservation
+    equation
+    \begin{equation}
+      \label{eq:conservation-of-Tmunu}
+      \nabla_\mu T^{\mu\nu} = 0,
+    \end{equation}
+    then the four-vector $Q^\mu := T^{\mu\nu}\xi_\nu$ also satisfies a conservation law $\nabla_\mu Q^\mu = 0$.
+  \item Now let us consider a flow consisting of perfect fluid and governed by adiabatic equation of state. Using first law of thermodynamics and specific enthalpy $h := (p + \varepsilon)/\rho$, where $p$ is pressure density, $\varepsilon$ is the internal energy density and $\rho$ is the fluid density, show that the conservation law in Eq. (\ref{eq:conservation-of-Tmunu}) provides
+    \begin{equation}
+      \label{eq:Euler-eq-enthalpy}
+      u^\mu \nabla_\mu (h u_\nu) = \frac{\nabla_\nu p}{\rho}
+    \end{equation}
+  \item Using Eq. (\ref{eq:Euler-eq-enthalpy}), find the expression for $\pounds_u(hu_\mu)$. Contracting it with $\xi$, find the expression for $\pounds_u(hu_\mu \xi^\mu)$ in terms of $\pounds_\xi p$ and $\pounds_\xi h$.
+  \item 
+    Let's also assume that the flow is invariant under the same symmetry group of the spacetime which provieds the Killing vector $\xi$. Mathematically this gives the condition
+    \begin{equation}
+      \label{eq:symmetry-of-flow}
+      \pounds_\xi(B) = 0,
+    \end{equation}
+    where B is any tensor field associated with the flow, e.g., pressure, density etc. Show that this implies that $h u_\mu \xi^\mu$ is conserved along the flow lines.
+  \item Find the conserved quantity along the flow lines when the spacetime is stationary and the flow is stationary. This is the {\itshape general relativistic Bernoulli constant}.
+  \item Find the Newtonian limit and check that the quantity reduces to the familiar expression of Bernoulli equation.
+\end{enumerate}
+  
+\end{enumerate}
+
+\end{document}
