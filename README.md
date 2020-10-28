@@ -8,3 +8,4 @@ Refs: D'Inverno
 # Assignments
 1. [Assignment 2](./Assignment_2_icts_igr_2020_fall.pdf)
 2. [Assignment 3](./Assignment_3_icts_igr_2020_fall.pdf)
+3. [Assignment 4](./Assignment_4_icts_igr_2020_fall.pdf)
