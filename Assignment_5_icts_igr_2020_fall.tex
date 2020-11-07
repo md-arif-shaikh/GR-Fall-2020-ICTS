@@ -2,6 +2,7 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{xcolor}
 \usepackage[colorlinks=true]{hyperref}
 
 \begin{document}
@@ -13,9 +14,40 @@
   Due on November 20, 2020 11:59 PM.
 \end{center}
 \hrule
+\vspace{0.5cm}
+\underline{\color{red}Please submit your python(.py or .ipynb)/mathematica(.nb) code used for generating the figures.}
 
 \begin{enumerate}
-\item 
+\item From d'Inverno's book: 16.8, 16.9, 16.10, 16.14, 16.15, 16.17
+\item Consider an observer who is freely falling radially in the Schwarzschild metric starting from rest at infinity. She emits a photon which travels in the outgoing radial direction. This photon is detected by another observer who is stationary at a large distance.
+  \begin{enumerate}
+  \item Compute the ratio of the wavelengths of the photon at emission and absorption as a function of the radial coordinate $r$ at which the emission takes place.
+  \item Show that the time of emission of the photon and the reception of the photon are given by
+    \begin{equation}
+      \label{eq:t_em}
+      t_{\text{em}}=-2M\ln\left[1-\frac{2M}{r_{\text{em}}}\right] + \text{constant};\quad t_{\text{rec}}=-4M\ln\left[1-\frac{2M}{r_{\text{em}}}\right] + \text{constant}.
+    \end{equation}
+    Hence show that $(\lambda_{\text{rec}}/\lambda_{\text{em}}) \propto \exp(t_{\text{rec}}/4M)$.
+  \end{enumerate}
+
+\item {\itshape Painlev{\'e} coordinates for the Schwarzschild metric} It is possible to construct several different coordinate systems which are all well behaved at $r = 2M$ and the Kruskal–Szekeres coordinates are just one of them.
+  \begin{enumerate}
+  \item Consider a massive particle falling in the Schwarzschild metric along a radial trajectory starting from rest at infinity. Let its four-velocity be $u_a(x)$ when it is at an event $x^a$. Show that this four-velocity can be expressed as a gradient of the scalar in the form $u_a = \partial_aT$ where
+    \begin{equation}
+      \label{eq:T-plainleve}
+      T = t+\int^r\left(\frac{2M}{r'}\right)^{1/2}\left(1-\frac{2M}{r}\right)^{-1}dr'.
+    \end{equation}
+  \item This suggests the use of $T$ as a new time coordinate. Transform from the
+    Schwarzschild coordinates to $(T, r, \theta, \phi)$ and show that the resulting metric has the form
+    \begin{equation}
+      \label{eq:line-element-plainleve}
+      ds^2 =-dT^2 + (dr + \sqrt{\frac{2M}{r}}dT)^2 + r^2(d\theta^2 + \sin^2\theta d\phi^2).
+    \end{equation}
+  \item Describe the geometry in terms of the new coordinates by plotting lines of constant $t$ and constant $r$ in the $(T, r)$ coordinate system and vice versa. How does the metric behave near the horizon?
+  \end{enumerate}
+\item Consider a spaceship with a sufficient amount of fuel that crosses to the $r < 2M$ region and tries to avoid hitting the $r = 0$ singularity by firing its rockets appropriately. Show that this is not possible and that any particle which crosses $r = 2M$ will hit the singularity in a proper time which is less than $\pi M$.
+\item {\itshape Twin paradox in the Schwarzschild metric?} Let us consider two observers $A$ and $B$ in the Schwarzschild metric. Observer $A$ is on a circular orbit at the radius $r = 4GM$; observer $B$ starts from a radius $r < 4GM$, moves radially outward to a maximum radius and falls back to $r = 4GM.$ The orbits are so arranged that observer $A$ completes exactly $N$ orbits during the time interval taken by the observer $B$ to cross $r = 4GM$ in the onward and the return trips and that $A$ and $B$ meet when their orbits cross. Both the observers are travelling on geodesics in the Schwarzschild metric and will experience no gravitational force in their respective frames. If their clocks were synchronized during the first meeting, how much will they differ when they meet for the second time? Is there a ‘twin paradox’ in this case, since each observer can consider himself to be located in an inertial, freely falling, frame?
+
 \end{enumerate}
 
 \end{document}
