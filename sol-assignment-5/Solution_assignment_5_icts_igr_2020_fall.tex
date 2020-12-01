@@ -1,0 +1,200 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{calc,patterns,angles,quotes}
+
+\begin{document}
+\begin{center}
+  {\bfseries Solution to assignment \#5}\\
+  Introduction to GR, 2020 Fall\\
+  International Centre for Theoretical Sciences\\
+  Instructor: Prof. Bala Iyer, Tutor: Md Arif Shaikh\footnote{\href{mailto: arif.shaikh@icts.res.in}{arif.shaikh@icts.res.in}}\\
+  % Due on October 04, 2020 11:59 PM.
+\end{center}
+\hrule
+
+\begin{enumerate}
+\item[2.] Consider an observer who is freely falling radially in the Schwarzschild metric starting from rest at infinity. She emits a photon which travels in the outgoing radial direction. This photon is detected by another observer who is stationary at a large distance.
+  \begin{enumerate}
+  \item Compute the ratio of the wavelengths of the photon at emission and absorption as a function of the radial coordinate $r$ at which the emission takes place.
+  \item Show that the time of emission of the photon and the reception of the photon are given by
+    \begin{equation}
+      \label{eq:t_em}
+      t_{\text{em}}=-2M\ln\left[1-\frac{2M}{r_{\text{em}}}\right] + \text{constant};\quad t_{\text{rec}}=-4M\ln\left[1-\frac{2M}{r_{\text{em}}}\right] + \text{constant}.
+    \end{equation}
+    Hence show that $(\lambda_{\text{rec}}/\lambda_{\text{em}}) \propto \exp(t_{\text{rec}}/4M)$.
+  \end{enumerate}
+  {\bfseries Answer:} Let the four-velocity of the emitter and the observer/receiver be denoted as $v_{\text{em}}$ and $v_{\text{rec}}$, respectively. The four-velocity of the radially outgoing photon is denoted by $k$. For convenience, we move to the out-going Eddington-Finkelstein coordinate by introducing the retarded time coordinate $u$ as
+  \begin{equation}
+    \label{eq:eddington-finkelstein}
+    u = t - r^\star
+  \end{equation}
+  where $dr^\star/dr = f^{-1} = (1-r_g/r)^{-1}, r_g=2M$. In out-going EF coordinates, the line element is given by
+\begin{equation}
+  \label{eq:line-element-EF}
+  ds^2 = -fdu^2 -2dudr + r^2 (d\theta^2 + \sin^2\theta d\phi^2).
+\end{equation}
+
+\begin{enumerate}
+\item
+The energy of the photon as measured by the receiver is $-k_a v_\textrm{rec}^a$ and similarly the energy of the photon as measured by the emitter is $-k_a v^a_\textrm{em}$. Therefore, the redshift is
+\begin{equation}
+  \label{eq:redshift-in-energy}
+  \frac{\nu_\textrm{em}}{\nu_\textrm{rec}} = \frac{\lambda_{\text{rec}}}{\lambda_{\text{em}}} = \frac{k_a v^a_\textrm{em}}{k_a v^a_\textrm{rec}}
+\end{equation}
+
+The emitter is radially falling in to the Schwarzchild black hole, so the four-velocity is
+\begin{equation}
+  \label{eq:v-em}
+  v^a_\textrm{em} = (\dot{u}_{\text{em}},\dot{r}_{\text{em}},0,0). 
+\end{equation}
+However, the receiver is stationary at large $r$, so
+\begin{equation}
+  \label{eq:v-rec}
+  v^a_\textrm{ rec} = (\dot{u}_{\text{rec}},0,0,0).
+\end{equation}
+The photon is moving radially outward, so $ds^2 = 0$ gives
+\begin{equation}
+  \label{eq:k-photon}
+  u = \textrm{ constant}
+\end{equation}
+Also, due to the existence of stationary Killing vector $\xi^a = \delta^a_u$, $-\xi^a_u k_a = -g_{ab} \xi^a_u k^b = -g_{ab}\delta^a_u k^b = -g_{ub}k^b = -g_{ur}k^r = k^r$= constant along the null geodesic. So the four-velocity has only radial component
+\begin{equation}
+  \label{eq:v-k}
+  k^a = (0,k^r,0,0), \quad k^r=\textrm{constant}.
+\end{equation}
+This immediately gives
+\begin{equation}
+  \label{eq:redshift}
+  \frac{\lambda_{\text{rec}}}{\lambda_{\text{em}}} = \frac{k_a v^a_\textrm{em}}{k_a v^a_\textrm{rec}} = \frac{g_{ru}k^r  v^u_\textrm{em}}{g_{ru}k^r v^u_\textrm{rec}} = \frac{\dot{u}_\textrm{em}}{\dot{u}_\textrm{rec}}  
+\end{equation}
+For the stationary receiver, $du_\textrm{rec} = dt_\textrm{rec}$ and as $r$ is also large, $d\tau_\textrm{rec} \approx dt_\textrm{rec}$ and hence $\dot{u}_\textrm{rec} = \dot{t}_\textrm{rec} \approx 1 $. Therefore, the redshift is given by
+\begin{equation}
+  \label{eq:redshift-u-dot}
+  \frac{\lambda_{\text{rec}}}{\lambda_{\text{em}}} = \dot{u}_\textrm{em}.
+\end{equation}
+
+Eq. (\ref{eq:redshift-u-dot}) can be derived also emparing between the time of reception of photons and emmission of photons
+\begin{equation}
+  \label{eq:redshift-u-dot-2}
+  \frac{\lambda_{\text{rec}}}{\lambda_{\text{em}}} = \frac{(\delta \tau)_\textrm{rec}}{(\delta \tau)_\textrm{em}} \approx \frac{(\delta t)_\textrm{ rec}}{(\delta \tau)_\textrm{em}} = \frac{(\delta u)_\textrm{rec}}{(\delta \tau)_\textrm{em}} = \frac{(\delta u)_\textrm{em}}{(\delta \tau)_\textrm{em}} = \dot{u}_\textrm{em}.
+\end{equation}
+Normalization of the velocity of the emitter, $g_{ab}v^a_\textrm{ em}v^b_\textrm{ em} = -1$, gives
+\begin{equation}
+  \label{eq:norm-v-em}
+  f\dot{u}^2_{\text{em}} + 2\dot{u}_{\text{em}}\dot{r}_{\text{em}} = 1.
+\end{equation}
+Assuming that the emitter follows geodesic, stationary Killing vector provides
+\begin{equation}
+  \label{eq:E-em}
+  E_{\text{em}} = - g_{ab}\xi^a v^b_\textrm{ em} = f\dot{u}_{\text{em}} + \dot{r}_{\text{em}} = \textrm{ constant}.
+\end{equation}
+Eq. (\ref{eq:norm-v-em}) and Eq. (\ref{eq:E-em}) is used to eliminate $\dot{u}_{\text{em}}$ to get
+\begin{equation}
+  \label{eq:dot-r}
+  \dot{r}_{\text{em}} = -\sqrt{E^2_{\text{em}}-f}.
+\end{equation}
+using the above equation in Eq. (\ref{eq:E-em}) provides
+\begin{equation}
+  \label{eq:u-dot-em}
+  \dot{u}_{\text{em}} = f^{-1}(E_{\text{em}} + \sqrt{E^2_{\text{em}}-f}).
+\end{equation}
+So, the formular for redshift becomes
+\begin{equation}
+  \label{eq:redshift-r-em}
+    \boxed{\frac{\lambda_{\text{rec}}}{\lambda_{\text{em}}} = f^{-1}(E_{\text{em}} + \sqrt{E^2_{\text{em}}-f})}.
+\end{equation}
+The above formula gives the redshit as a function of the radial coordinate $r$ of the emitter. Near the horizon, as $r\to r_g, f\to 0$, and thus
+\begin{equation}
+  \label{eq:redshift-near-horizon}
+    \frac{\lambda_{\text{rec}}}{\lambda_{\text{em}}} \approx 2E_{\text{em}}/f.
+  \end{equation}
+
+
+\item 
+
+We would like to obtain the redshift as a function of the time coordinate of the receiver. To achieve that we have to express the radial coordinate of the emitter $r_\textrm{em}$ as a function of the time coordinate $t_\textrm{rec}$. So we do the following,
+\begin{equation}
+  \label{eq:r-em-t-rec}
+  \frac{dr_\textrm{em}}{dt_\textrm{rec}} = \frac{dr_\textrm{em}}{du_\textrm{rec}} = \frac{dr_\textrm{em}}{du_\textrm{em}} = \frac{\dot{r}_\textrm{em}}{\dot{u}_\textrm{em}}.
+\end{equation}
+Now we use Eq. (\ref{eq:dot-r}) and (\ref{eq:u-dot-em}) to get
+\begin{equation}
+  \label{eq:dr-dt-em}
+  \frac{dr_\textrm{em}}{dt_\textrm{rec}} = -\frac{f\sqrt{E^2_{\text{em}}-f}}{E_{\text{em}} + \sqrt{E^2_{\text{em}}-f}}.
+\end{equation}
+As $r\to r_g$ the above equation becomes
+\begin{equation}
+  \label{eq:dr-dt-em-r_g}
+  \frac{dr_\textrm{em}}{dt_\textrm{rec}} \approx -\frac{f}{2} \approx -\frac{r_\textrm{em}-r_g}{2r_g}.
+\end{equation}
+Integrating the above equation gives
+\begin{equation}
+  \label{eq:r-em-in-t-rec}
+  f = 1-\frac{r_g}{r} \approx \exp\left[{-\frac{t_\textrm{rec}}{2r_g}}\right]
+\end{equation}
+Using the result of Eq. (\ref{eq:r-em-in-t-rec}) in Eq. (\ref{eq:redshift-near-horizon}) provides the redshift near horizon as
+\begin{equation}
+  \label{eq:redshift-in-t-rec}
+    \boxed{\frac{\lambda_{\text{rec}}}{\lambda_{\text{em}}} \propto \exp\left[{\frac{t_\textrm{rec}}{2r_g}}\right]}.
+\end{equation}
+\end{enumerate}
+
+\item[5.]
+  {\itshape Twin paradox in the Schwarzschild metric?} Let us consider two observers $A$ and $B$ in the Schwarzschild metric. Observer $A$ is on a circular orbit at the radius $r = 4GM$; observer $B$ starts from a radius $r < 4GM$, moves radially outward to a maximum radius and falls back to $r = 4GM.$ The orbits are so arranged that observer $A$ completes exactly $N$ orbits during the time interval taken by the observer $B$ to cross $r = 4GM$ in the onward and the return trips and that $A$ and $B$ meet when their orbits cross. Both the observers are travelling on geodesics in the Schwarzschild metric and will experience no gravitational force in their respective frames. If their clocks were synchronized during the first meeting, how much will they differ when they meet for the second time? Is there a ‘twin paradox’ in this case, since each observer can consider himself to be located in an inertial, freely falling, frame?
+
+ {\bfseries Answer:} To see whether there would be any paradox regarding the age of the twins let's see whether their age difference could be computed in an unambiguous way. Let's consider first the observer $A$. In the Schwarzchild coordinates the four-velocity of $A$ would be given by
+  \begin{equation}
+    \label{eq:four-velocity-A}
+    v_A = (\dot{t}_A, 0, 0, \dot{\phi}_A)
+  \end{equation}
+  where the trajectory is parameterized by the proper time $\tau_A$. The Schwarzchild spacetime posseses the Killing vectors $\xi^\mu = \delta^\mu_t$ and $\phi^\mu = \delta^\mu_\phi$. Thus for observer $A$, we have the following constants of motion
+  \begin{equation}
+    \label{eq:constants-of-motion-A}
+    -f_A\dot{t}_A = E_A,\qquad r_A^2\dot{\phi}_A = \lambda_A
+  \end{equation}
+  However, these two are not independent, they are related by the normalization condition $v_A^\mu {v_A}_\mu = -1$. The proper time elapsed by $A$ in completing the $N$ orbits would be given by
+  \begin{equation}
+    \label{eq:proper-time-A}
+    \tau_A^{\text{tot}}=\frac{r_A^2}{\lambda_A}\int_0^{2N\pi}d\phi_A = \frac{2\pi N}{\lambda_A} r_A^2.
+  \end{equation}
+  Similarly one can also compute the total coordinate time elapsed by $A$,
+  \begin{equation}
+    \label{eq:coordinate-time-A}
+    -f_At_A^{\text{tot}} = E_A \times \tau_A^{\text{tot}} = \frac{E_A}{\lambda_A}\times 2\pi N r_A^2.
+  \end{equation}
+  For $A$, $r_A = 4GM, f_A = 1/2$.
+
+  Now for observer $B$, the four-velocity would be given by
+  \begin{equation}
+    \label{eq:four-velocity-B}
+    v_B = (\dot{t}_B, \dot{r}_B, 0, 0)
+  \end{equation}
+  and the constants of motion would be given by
+  \begin{equation}
+    \label{eq:constants-of-motion-B}
+    -f_B\dot{t}_B = E_B
+  \end{equation}
+  from the normalization condition one gets
+  \begin{equation}
+    \label{eq:normalization-B}
+    -f_B\dot{t}_B^2 + f^{-1}_B \dot{r}_B^2 = -1 \to \dot{r}_B = \sqrt{-f_B + E_B^2}
+  \end{equation}
+  From one can obtain the proper time elapsed by $B$,
+  \begin{equation}
+    \label{eq:proper-time-B}
+    \tau_B^\text{tot} = 2\int_{4GM}^{r_{\text{max}}}\frac{dr}{\sqrt{-f_B + E_B^2}},
+  \end{equation}
+  where $r_\text{max}$ would be given by turning point set by the condition $\dot{r}_B = 0$. Similarly the coordinate time elapsed by $B$ also could be computed using \eqref{eq:constants-of-motion-B} and \eqref{eq:normalization-B}
+  \begin{equation}
+    \label{eq:coordinate-time-B}
+    t_B^{\text{tot}} = 2 \int_{4GM}^{r_{\text{max}}}\frac{E_B}{f_B\sqrt{-f_B + E_B^2}}dr.
+  \end{equation}
+  Now all we need are the equations \eqref{eq:proper-time-A}, \eqref{eq:coordinate-time-A}, \eqref{eq:proper-time-B} and \eqref{eq:coordinate-time-B}. $t_A^{\text{tot}}$ is function of only one independent variable, say, $E_A$ and $t^\text{tot}_B$ is function of $E_B$. Since the trajectories of $A$ and $B$ are such that they spend same coordinate time, $t^\text{tot}_A = t^\text{tot}_B$, which gives only one independent variable, say, $E_A$. Now given $E_A$, equation \eqref{eq:proper-time-A} could be used to computed $\tau_A^{\text{tot}}$ since $\lambda_A$ is obtained from $E_A$ using the normalization condition. Also $\tau_B^{\text{tot}}$ could be computed using equation \eqref{eq:proper-time-B}. Thus, given $E_A$ or $E_B$ one would be able to compute the difference between the proper time elapsed by $A$ and $B$ and hence there would be no paradox regarding who would be younger/older.
+
+\end{enumerate}
+
+\end{document}
