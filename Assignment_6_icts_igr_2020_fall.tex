@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks=true]{hyperref}
+
+\begin{document}
+\begin{center}
+  {\bfseries Assignment \#6}\\
+  Introduction to GR, 2020 Fall\\
+  International Centre for Theoretical Sciences\\
+  Instructor: Prof. Bala Iyer, Tutor: Md Arif Shaikh\footnote{\href{mailto: arif.shaikh@icts.res.in}{arif.shaikh@icts.res.in}}\\
+  Due on Dec 9, 2020 11:59 PM.
+\end{center}
+\hrule
+
+\begin{enumerate}
+\item
+  \begin{enumerate}
+  \item Show that under an infinitesimal coordinate transformation
+    $x^{\textrm{new}\mu} = x^{\textrm{old} \mu} + \xi^\mu$,
+    $h_{\mu\nu}$ transforms as
+    \begin{equation}
+      \label{eq:gauge-transformation-of-h}
+      h_{\mu\nu}^{\textrm{new}} = h^{\textrm{old}}_{\mu\nu} - \partial_\mu \xi_\nu - \partial_\nu \xi_\mu
+    \end{equation}
+    and the trace reversed metric perturbation transforms as
+    \begin{equation}
+      \label{eq:transformation-of-trace-reversed-h}
+      \bar{h}_{\mu\nu}^{\textrm{new}} = \bar{h}^{\textrm{old}}_{\mu\nu} - \partial_\mu \xi_\nu - \partial_\nu \xi_\mu + \eta_{\mu\nu} \partial_\alpha \xi^\alpha
+    \end{equation}
+    
+  \item Assuming solution of the form $\bar{h}_{\mu\nu} = A_{\mu\nu}\exp(ik_\alpha x^\alpha)$ and $\xi_\mu = B_\mu \exp(ik_\alpha x^\alpha)$, express eq. \ref{eq:transformation-of-trace-reversed-h} in terms of $A_{\mu\nu}$ and $B_\mu$. Find the Lorenz gauge condition on $A_{\mu\nu}$. Show that $A_{\mu\nu}^{\textrm{new}}$ satisfies the gauge condition if $A_{\mu\nu}^{\textrm{old}}$ does.
+  \item Find the constrain on $B_\mu$ in order to make $A_{\mu\nu}$ traceless.
+  \item Show that the condition $A_{\mu\nu}u^\nu = 0$, imposes only three constraints on $B_{\mu}$. ($u^\mu$ is a consant time-like four-velocity). Do this by showing that the combination $k^\mu (A_{\mu\nu}u^\nu)$ vanishes for any $B_{\mu}$.
+  \item Use the results of the previous two questions to solve for $B^\mu$ as a function of $k^\mu$, $A_{\mu\nu}^{\textrm{old}}$ and $u^\mu$.
+  \item Show that it is possible to choose $\xi^\alpha$ in eq. \ref{eq:gauge-transformation-of-h} to make any superposition of
+    plane waves satisfy the equations $A_{\mu\nu}u^\mu = 0$ and $A^\mu_\mu = 0$, so that these are generally applicable to gravitational waves of any sort.
+  \item Show that we cannot achieve $A_{\mu\nu}u^\mu = 0$ and $A^\mu_\mu = 0$ for a static solution, i.e. one for which $\omega = 0$.
+  \end{enumerate}
+
+\item The equation $(\nabla^2  + \Omega^2)B_{\mu\nu} = -16\pi S_{\mu\nu}$ in the vacuum region outside the source – i.e. where $S_{\mu\nu} = 0$ – can be solved by separation of variables. Assume a solution for ${B}_{\mu\nu}$ of the form $\sum_{lm} A^{lm}_{\mu\nu}f_l(r)Y_{lm}(\theta , \phi)/\sqrt{r}$, where $Y_{lm}$ is the spherical harmonic.
+  \begin{enumerate}
+  \item Show that $f_l(r)$ satisfies the equation
+    \begin{equation}
+      \label{eq:fl}
+      f_l^{''} + \frac{1}{r}f_l^{'} + (\Omega^2 - \frac{(l + \frac{1}{2})^2}{r^2})f_l = 0
+    \end{equation}
+  \item Show that the most general spherically symmetric solution is given by
+    \begin{equation}
+      \label{eq:general-sol}
+      B_{\mu\nu} = \frac{A_{\mu\nu}}{r}e^{i\Omega r} + \frac{Z_{\mu\nu}}{r}e^{-i\Omega r}.
+    \end{equation}
+  \end{enumerate}
+\item Show that
+  \begin{equation}
+    \label{eq:integral-B}
+    \oint \vec{n}.\nabla B_{\mu\nu} dS \approx -4\pi A_{\mu\nu}. 
+  \end{equation}
+  (Assume that the source is nonzero only inside a sphere of radius $\epsilon \ll 2\pi/\Omega$.)
+\end{enumerate}
+\end{document}
