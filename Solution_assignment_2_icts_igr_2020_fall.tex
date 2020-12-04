@@ -1,0 +1,160 @@
+\documentclass[fleqn]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{calc,patterns,angles,quotes}
+
+\begin{document}
+\begin{center}
+  {\bfseries Solution to assignment \#2}\\
+  Introduction to GR, 2020 Fall\\
+  International Centre for Theoretical Sciences\\
+  Instructor: Prof. Bala Iyer, Tutor: Md Arif Shaikh\footnote{\href{mailto: arif.shaikh@icts.res.in}{arif.shaikh@icts.res.in}}\\
+  % Due on October 04, 2020 11:59 PM.
+\end{center}
+\hrule
+
+
+\section{Parallel transport along $r=$ constant line on the surface of a cone}
+
+\begin{center}
+  \begin{tikzpicture}
+  \draw[cyan] (0,3) ellipse (2cm and 0.5cm);
+  \draw[->] (0, 0) -- (0, 4) node[above] {$z$};
+  \draw[->] (0, 0) -- (4, 0) node[right] {$y$};
+  \draw[->] (0, 0) -- (-3, -2) node[left] {$x$};
+  \draw[cyan] (0, 0) -- (2, 3);
+  \draw[cyan] (0, 0) -- (-2, 3);
+  \draw (0, 0.5) arc (90:110:1) node[left] {$\alpha$} ;
+  \draw[orange] (0, 1.5) ellipse (1cm and 0.25cm);
+  \draw[fill=red] (0.5, 1.28) circle (0.05cm);
+  \draw (0, 1.5) -- (0.5, 1.28) node[right] {$(r, \phi)$};
+  \draw (0, 1.5) -- (-3, -0.5);
+  \draw (0, 1.5) -- (4, 1.5);
+  \draw[red] (0.5, 1.28) arc (-80:-100:2.3) node[below] {$\phi$}; 
+\end{tikzpicture}
+\end{center}
+
+We have a cone with opening angle $2\alpha$ embedded in the 3-dimensional flat space. $r$ is the distance measured from the apex. A constant $r$ line on the surface of the cone would be parameterised by the angle $\phi$. The 3-dimensional flat metric in spherical polar coordinate is given by
+
+\begin{equation}
+  \label{eq:3-d-flat-metric}
+  ds^2_{3d} = dr^2 + r^2d\theta^2 + r^2\sin^2\theta d\phi^2.
+\end{equation}
+$\theta$ is the angle w.r.t to the $z$-axis. On the surface of the cone, $\theta=\alpha=$ constant. Thus the metric on the surface of the cone becomes
+\begin{equation}
+  \label{eq:2-d-metric-on-cone}
+  \boxed{ds^2 = dr^2 + r^2\sin^2\alpha d\phi^2.}
+\end{equation}
+
+\noindent\fbox{\parbox{\textwidth}{{\bfseries What is parallel transport of a tensor?}
+    Parallel transport is defined in the following way: A tensor field $T^{\mu...}_{\nu...}$  is said to be {\itshape parallel transported} along a curve $\gamma:=x^\alpha(\lambda)$ if the covariant derivative of the tensor field along the curve vanishes: $D_\lambda T^{\mu...}_{\nu...} = u^\eta \nabla_\eta T^{\mu...}_{\nu...}= 0$, where $u^\eta = dx^\eta/d\lambda$.}}
+
+\vspace{0.5cm}
+
+In the given problem we are asked to compute the rotation of a vector $V^\mu$ when it is parallel transported along the $r=$ constant line from $\phi=0$ to $\phi=2\pi$. Thus the curve $\gamma$ is represented by $x^\mu(\lambda) = (r_0, \phi(\lambda))$. The condition for parallel transport of $V^\mu$ along $\gamma$ then becomes
+
+\begin{equation}
+  \label{eq:parallel-transport-along-r-constant}
+  u^\mu\nabla_\mu V^\nu = 0 \to \dot{\phi}\nabla_\phi V^\mu = 0\to \nabla_\phi V^\mu = 0 \to \boxed{\partial_\phi V^\mu + \Gamma^\mu_{\phi \nu} V^\nu = 0}.
+\end{equation}
+
+To find out the Christofell symbols we use the geodesic equations. The geodesic equations could be obtained from the Lagrangian $L = (1/2)g_{\mu\nu}\dot{x}^\mu\dot{x}^\nu$ where $\dot{x}^\mu = dx^\mu/d\tau$ (we take $\lambda = \tau$ the propertime). The geodesic e.o.m is given by
+\begin{equation}
+  \label{eq:geodesic-eom}
+  \frac{d}{d\tau}\left(\frac{\partial L}{\partial \dot{x^\mu}}\right) - \frac{\partial L}{\partial x^\mu} = 0
+\end{equation}
+
+With the Lagrangian given by
+\begin{equation}
+  \label{eq:Lagrangian}
+  L = \frac{1}{2}(\dot{r}^2 + r^2\sin^2\alpha\dot{\phi}^{2})
+\end{equation}
+The e.o.m for $r$ becomes
+\begin{equation}
+  \label{eq:eom-r}
+  \ddot{r} - r\sin^2\alpha \dot{\phi}^{2} = 0,
+\end{equation}
+which provides $\Gamma^{r}_{\phi\phi} = - r\sin^2\alpha$.
+Similarly e.o.m for $\phi$ is given by
+\begin{equation}
+  \label{eq:eom-phi}
+  \ddot{\phi} + \frac{2}{r}\dot{r}\dot{\phi} = 0,
+\end{equation}
+which provides $\Gamma^{\phi}_{r\phi} = \Gamma^{r}_{\phi r} = \frac{1}{r}$. Thus we have
+\begin{equation}
+  \label{eq:Christofell-symbols}
+  \boxed{\Gamma^{r}_{\phi\phi} = - r\sin^2\alpha,\qquad \Gamma^{\phi}_{r\phi} = \Gamma^{r}_{\phi r} = \frac{1}{r}}.
+\end{equation}
+
+Thus Eq. (\ref{eq:parallel-transport-along-r-constant}) becomes 
+\begin{equation}
+  \label{eq:parallel-transport}
+  \partial_\phi V^{\mu} + \Gamma^{\mu}_{\phi\nu}V^\nu = 0.
+\end{equation}
+
+For $\mu=r,\phi$ this gives the following equations
+\begin{equation}
+  \label{eq:r-phi}
+  \partial_\phi V^{r} + \Gamma^{r}_{\phi\nu}V^\nu = 0,\qquad
+  \partial_\phi V^{\phi} + \Gamma^{\phi}_{\phi\nu}V^\nu = 0.
+\end{equation}
+which using Eq.~\eqref{eq:Christofell-symbols} becomes
+\begin{equation}
+  \label{eq:r-phi-2}
+ 	 \partial_\phi V^{r} + \Gamma^{r}_{\phi\nu}V^\nu = 0,\qquad
+  \partial_\phi V^{\phi} + \Gamma^{\phi}_{\phi\nu}V^\nu = 0.
+\end{equation}
+
+or after differentiating with respect to $\phi$,
+\begin{equation}
+  \label{eq:r-phi-3}
+  \partial_\phi^2 V^r + \sin^2\alpha V^r = 0,\qquad   \partial_\phi^2 V^\phi + \sin^2\alpha V^\phi = 0
+\end{equation}
+Which has the following general solutions
+\begin{equation}
+  \label{eq:r-phi-solution}
+  \boxed{V^r = A^r_1 \sin(\sin\alpha \phi) + A^r_2 \cos(\sin\alpha \phi),\quad V^\phi = A^\phi_1 \sin(\sin\alpha \phi) + A^\phi_2 \cos(\sin\alpha \phi)}.
+\end{equation}
+Denoting the values of the components at $\phi=0$ with suffix `0' the solutions becomes
+
+\begin{equation}
+  \label{eq:r-phi-solution-2}
+  \boxed{V^r = A^r_1 \sin(\sin\alpha \phi) + V^r_0 \cos(\sin\alpha \phi),\quad V^\phi = A^\phi_1 \sin(\sin\alpha \phi) + V^\phi_0 \cos(\sin\alpha \phi)}.
+\end{equation}
+Now, the constants are not all independent, there are only two independent constants. Thus the other two components could be written in terms of the $A^r_0$ and $A^\phi_0$ using equation \eqref{eq:r-phi-2}. This provides
+\begin{equation}
+  \label{eq:constants}
+  A^r_1 = r \sin\alpha V^\phi_0,\quad A^\phi_1 = - V^r_0/r\sin\alpha.
+\end{equation}
+Thus finally we have the solutions
+\begin{equation}
+  \label{eq:r-phi-solution-final}
+  \boxed{V^r =  V^\phi_0 r \sin\alpha \sin(\phi\sin\alpha) + V^r_0 \cos(\phi\sin\alpha),\quad V^\phi =  - \frac{V^r_0}{r\sin\alpha} \sin(\phi\sin\alpha) + V^\phi_0 \cos(\phi\sin\alpha)}.
+\end{equation}
+Now we move to a orthonormal set of basis given by $E_r = \partial_r, E_\phi = (1/\sin\alpha)\partial_\phi$. In this basis, we can rewrite the components of the $V$ as
+\begin{equation}
+  \label{eq:V-in-orthonormal}
+  \hat{V}^r = V^r,\quad \hat{V}^\phi = r\sin\alpha V^\phi.
+\end{equation}
+Thus in this basis, we have the transformation
+\begin{equation}
+  \label{eq:transformation-orthonormal}
+  \boxed{\begin{bmatrix}
+      \hat{V}^r \\
+      \hat{V}^\phi
+    \end{bmatrix} =
+    \begin{bmatrix}
+      \cos(\phi\sin\alpha) & \sin(\phi\sin\alpha)\\
+      -\sin(\phi\sin\alpha) & \cos(\phi\sin\alpha)
+    \end{bmatrix}
+    \begin{bmatrix}
+      \hat{V}^r_0 \\
+      \hat{V}^\phi_0
+    \end{bmatrix}}
+\end{equation}
+Thus the components are rotated by an angle $\beta = \phi\sin\alpha$. For $\alpha = 2\pi$ this rotation equals $\beta = 2\pi\sin\alpha$.
+
+\end{document}
