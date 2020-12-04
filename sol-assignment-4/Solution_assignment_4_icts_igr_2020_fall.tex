@@ -1,0 +1,105 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{calc,patterns,angles,quotes}
+
+\begin{document}
+\begin{center}
+  {\bfseries Solution to assignment \#4}\\
+  Introduction to GR, 2020 Fall\\
+  International Centre for Theoretical Sciences\\
+  Instructor: Prof. Bala Iyer, Tutor: Md Arif Shaikh\footnote{\href{mailto: arif.shaikh@icts.res.in}{arif.shaikh@icts.res.in}}\\
+  % Due on October 04, 2020 11:59 PM.
+\end{center}
+\hrule
+
+\begin{enumerate}
+\item[4.]
+  \begin{enumerate}
+  \item Consider a spacetime with a Killing vector $\xi$. Show that if
+    the energy-momentum tensor $T^{\mu\nu}$ satisfies the conservation
+    equation
+    \begin{equation}
+      \label{eq:conservation-of-Tmunu}
+      \nabla_\mu T^{\mu\nu} = 0,
+    \end{equation}
+    then the four-vector $Q^\mu := T^{\mu\nu}\xi_\nu$ also satisfies a conservation law $\nabla_\mu Q^\mu = 0$.
+  \item Now let us consider a flow consisting of perfect fluid and governed by adiabatic equation of state. Using first law of thermodynamics and specific enthalpy $h := (p + \varepsilon)/\rho$, where $p$ is pressure density, $\varepsilon$ is the internal energy density and $\rho$ is the fluid density, show that the conservation law in Eq. (\ref{eq:conservation-of-Tmunu}) provides
+    \begin{equation}
+      \label{eq:Euler-eq-enthalpy}
+      u^\mu \nabla_\mu (h u_\nu) = \frac{\nabla_\nu p}{\rho}
+    \end{equation}
+  \item Using Eq. (\ref{eq:Euler-eq-enthalpy}), find the expression for $\pounds_u(hu_\mu)$. Contracting it with $\xi$, find the expression for $\pounds_u(hu_\mu \xi^\mu)$ in terms of $\pounds_\xi p$ and $\pounds_\xi h$.
+  \item 
+    Let's also assume that the flow is invariant under the same symmetry group of the spacetime which provieds the Killing vector $\xi$. Mathematically this gives the condition
+    \begin{equation}
+      \label{eq:symmetry-of-flow}
+      \pounds_\xi(B) = 0,
+    \end{equation}
+    where B is any tensor field associated with the flow, e.g., pressure, density etc. Show that this implies that $h u_\mu \xi^\mu$ is conserved along the flow lines.
+  \item Find the conserved quantity along the flow lines when the spacetime is stationary and the flow is stationary. This is the {\itshape general relativistic Bernoulli constant}.
+  \item Find the Newtonian limit and check that the quantity reduces to the familiar expression of Bernoulli equation.
+\end{enumerate}
+
+{\bfseries Answer:}
+\begin{enumerate}
+\item $\nabla_\mu(T^{\mu\nu}\xi_\nu) = \underbrace{\nabla_\mu T^{\mu\nu}}_{=0\text{ due to conservation law}}\times\xi_\nu + \underbrace{T^{\mu\nu}}_{\text{symmetric}}\times\underbrace{\nabla_\mu \xi_\nu}_{\text{anti-symmetric}} = 0$.
+\item The energy-momentum tensor for perfect fluid is given by $T^{\mu\nu} = (p+\varepsilon)v ^{\mu} v ^{\nu}  + p g ^{\mu\nu}$.
+  \begin{align*}
+    \nabla _{\mu} T ^{\mu\nu}
+    & = \nabla _{\mu} [(p+\varepsilon)v ^{\mu} v^{\nu}] + g ^{\mu\nu}\nabla _{\mu} p\quad\text{metric is divergenceless}\\
+    & = \nabla _{\mu} (h v ^{\nu}\times \rho v ^{\mu}) + g ^{\mu\nu} \nabla _{\mu} p\\
+    & = \nabla _{\mu} (hv ^{\nu}) \rho v ^{\mu} + g ^{\mu\nu}\nabla_{\mu}p\quad\text{using}\quad\nabla _{\mu} (\rho v ^{\mu}) = 0\\
+    & = 0.
+  \end{align*}
+  This gives
+  \begin{equation}
+    \label{eq:div-hv}
+    \boxed{v^\mu\nabla_\mu(h v^\nu) = - \frac{g^{\mu\nu}\nabla_\mu p}{\rho} = - \frac{\nabla^\nu p}{\rho}.}
+  \end{equation}
+\item
+  \begin{align*}
+    \pounds_v (h v_\mu)
+    & = v^\nu \nabla_\nu (h v_\mu) + h v_\nu \nabla_\mu v^\nu \\
+    & = - \frac{\nabla_\mu p}{\rho}
+  \end{align*}
+  The second term in first line vanishes due to the $v^\mu v_\mu = -1$. Contracting with $\xi$ gives
+  \begin{align*}
+    \xi^\mu \pounds_v (hv_\mu)
+    & = - \frac{1}{\rho}\xi^\mu\nabla_\mu p
+  \end{align*}
+  Therefore,
+  \begin{align*}
+    \pounds_v(\xi^\mu hv_\mu)
+    & = \xi^\mu \pounds_v(h v_\mu) + h v_\mu \pounds_v \xi^\mu\\
+    & = -\frac{\xi^\mu}{\rho}\nabla_\mu p + h v_\mu v^\nu\nabla_\nu \xi^\mu - hv_\mu \xi^\nu\nabla_\nu v^\mu\\
+    & = -\frac{\xi^\mu}{\rho}\nabla_\mu p\\
+    & = -\frac{\pounds_\xi p}{\rho}.
+  \end{align*}
+  In the second line, the second term vanishes because $\nabla_\nu\xi^\mu$ is anti-symmetric but $v_\mu v^\nu$ is symmetric. The third term vanishes using $v^\mu v_\mu = -1$.
+
+\item Using $\pounds_\xi p = 0$ gives $\pounds_v(\xi^\mu hv_\mu) = 0$.
+  \begin{align*}
+    \pounds_v(\xi^\mu hv_\mu)
+    & = v^\nu \nabla_\nu (\xi^\mu hv_\mu) = 0
+  \end{align*}
+  which implies that $\xi^\mu hv_\mu$ is constant along the flow line.
+\item In stationary spacetime we have the stationary Killing vector $\xi^\mu = \delta^\mu_t$. This provides the constant $hv_t$ along the flow lines.
+\item
+  \begin{align*}
+    hv_t
+    & = \frac{\varepsilon + p}{\rho} v_t\\
+    & = \frac{\rho(c^2 + \epsilon) + p}{\rho}v_t\\
+    & = (c^2 + \epsilon + \frac{p}{\rho})v_t\quad \epsilon \ll c^2, \text{in non-relativistic limit}\\
+    & = ({c^2 + \frac{p}{\rho}})(- 1 - \frac{\phi}{c^2} - \frac{1}{2}\frac{v_i v^i}{c^2})\\
+    & = -c^2 - \phi - \frac{1}{2}{v_i v^i} - \frac{p}{\rho} + \mathcal{O}(1/c^2)
+  \end{align*}
+$\epsilon$ is the thermal energy and $\phi$ is the potential energy. This gives the newtonian limit of Bernoulli constant $\boxed{\phi + (1/2)v_iv^i + p/\rho}$.
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
