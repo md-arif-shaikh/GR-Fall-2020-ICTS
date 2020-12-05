@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[colorlinks=true]{hyperref}
+\usepackage[makeroom]{cancel}
 
 \begin{document}
 \begin{center}
@@ -31,6 +32,17 @@
     (u_\alpha + e A_\alpha)\xi^\alpha
   \end{equation}
   is constant on the world line of the of the charged particle.
+
+  \noindent {\bfseries Answer:}
+  \begin{align*}
+    \frac{d}{d\lambda}\left[(u_\alpha + e A_\alpha)\xi^\alpha\right]
+    & = u^\beta\nabla_\beta\left[(u_\alpha + e A_\alpha)\xi^\alpha\right]\\
+    & = u^\beta(\nabla_\beta u^\alpha)\xi^\alpha + \underbrace{u^\beta u^\alpha}_{\text{symmetric}}\times \underbrace{\nabla_\beta \xi^\alpha}_{\text{anti-symmetric}} + e \xi^\alpha u^\beta\nabla_\beta A_\alpha + e A_\alpha u^\beta \nabla_\beta \xi^\alpha\\
+    & = eu^\beta(\nabla_\alpha A_\beta - \cancel{\nabla_\beta A_\alpha})\xi^\alpha + \cancel{e\xi^\alpha u^\beta \nabla_\beta A_\alpha} + e A_\alpha u^\beta \nabla_\beta \xi^\alpha\\
+    & = e u^\beta (\xi^\alpha\nabla_\alpha A_\beta + A_\alpha \nabla_\beta \xi^\alpha)\\
+    & = e u^\beta \pounds_\xi A_\alpha\\
+    & = 0
+  \end{align*}
 
 \item[5.] A particle moving on a circular orbit in a stationary, axially symmetric spacetime is subjected to a dissipative force which drives it to another, slightly smaller, circular orbit. During the transition, the particle loses an amount $\delta \tilde{E}$ of orbital energy (per unit rest mass) and an amount $\delta \tilde{L}$ of orbital angular momentum (per unit rest mass). Show that these quantities are related by $\delta\tilde{E} = \Omega \delta\tilde{L}$, where $\Omega$ is the particle's original angular velocity.
   
