@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[colorlinks=true]{hyperref}
+
+\begin{document}
+\begin{center}
+  {\bfseries Solution to assignment \#3}\\
+  Introduction to GR, 2020 Fall\\
+  International Centre for Theoretical Sciences\\
+  Instructor: Prof. Bala Iyer, Tutor: Md Arif Shaikh\footnote{\href{mailto: arif.shaikh@icts.res.in}{arif.shaikh@icts.res.in}}\\
+\end{center}
+\hrule
+
+\begin{enumerate}
+\item[3.] Prove that
+  \begin{equation}
+    \label{eq:Killing-vectors-sph}
+    \xi^\alpha_{1} = \sin\phi\partial_\theta + \cot\theta\cos\phi\partial_\phi\qquad \xi^\alpha_{2} = - \cos\phi\partial_\theta + \cot\theta\sin\phi\partial_\phi
+  \end{equation}
+  are the Killing vectors of the spherically symmetric spacetime
+  \begin{equation}
+    \label{eq:line-element-spherically-symmetric}
+    ds^2 = -A(r)dt^2 + B(r)dr^2 + r^2 (d\theta^2 + \sin^2\theta d\phi^2)
+  \end{equation}
+  
+\item[4.] A particle with electric charge $e$ moves in a spacetime with metric $g_{\alpha\beta}$ in the presence of a vector potential $A_\alpha$. The equations of motion are $u^\beta \nabla_\beta u_\alpha = e F_{\alpha\beta}u^\beta$, where $u^\alpha$ is the four-velocity and $F_{\alpha\beta}=\nabla_\alpha A_\beta - \nabla_\beta A_\alpha$. It is assumed that the spacetime possesses a Killing vector $\xi^\alpha$, so that $\pounds_\xi g_{\alpha\beta} = \pounds_\xi A_\alpha = 0$. Prove that
+  \begin{equation}
+    \label{eq:conserved-quantity-em-field}
+    (u_\alpha + e A_\alpha)\xi^\alpha
+  \end{equation}
+  is constant on the world line of the of the charged particle.
+
+\item[5.] A particle moving on a circular orbit in a stationary, axially symmetric spacetime is subjected to a dissipative force which drives it to another, slightly smaller, circular orbit. During the transition, the particle loses an amount $\delta \tilde{E}$ of orbital energy (per unit rest mass) and an amount $\delta \tilde{L}$ of orbital angular momentum (per unit rest mass). Show that these quantities are related by $\delta\tilde{E} = \Omega \delta\tilde{L}$, where $\Omega$ is the particle's original angular velocity.
+  
+  {\itshape Hints:} Express the four-velocity $u^\alpha$ of the particle in terms of the Killing vectors, energy angular momentum and orbital velocity. Find the variation $\delta u^\alpha$. Use the normalization condition $u_\alpha u^\alpha = -1$.
+
+  \noindent {\bfseries Answer:} The spacetime possesses the Killing vectors $t^\alpha = \delta^\alpha_t$ and $\phi^\alpha = \delta^\alpha_\phi$. In terms of these we can write down the four-velocity $u^\alpha$ as
+  \begin{equation}
+    \label{eq:four-velocity}
+    u^\alpha = u^t t^\alpha + u^\phi \phi^\alpha = u^t(t^\alpha + \Omega \phi^\alpha),\qquad \Omega = \frac{u^\phi}{u^t}
+  \end{equation}
+  as the particle moves in a circular orbit. Using the normalization condition $u_\alpha u^\alpha = -1$ we find
+  \begin{equation}
+    \label{eq:normalization-condition}
+    u_\alpha u^\alpha = u_tu^t + u_\phi u^t\Omega = -1
+  \end{equation}
+  or,
+  \begin{equation}
+    \label{eq:normalization-condition-2}
+    u^t(u_t + u_\phi \Omega) = -1
+  \end{equation}
+  Now the two constants of motion from the two Killing vectors are $E = - t^\alpha u_\alpha = -u_t$ and $L = \phi^\alpha u_\alpha = u_\phi$. Thus in terms of $E$ and $L$, $u^t$ becomes
+  \begin{equation}
+    \label{eq:u^t}
+    u^t = \frac{1}{E - \Omega L}
+  \end{equation}
+  and hence the four-velocity could be written as
+  \begin{equation}
+    \label{eq:four-velocity-2}
+    u^\alpha = \frac{(t^\alpha + \Omega \phi^\alpha)}{(E -\Omega L)}
+  \end{equation}
+  The variation of the four-velocity would be given by
+  \begin{equation}
+    \label{eq:variation-u^alpha}
+    \delta u^\alpha = -\frac{(t^\alpha + \Omega \phi^\alpha)}{(E -\Omega L)^2}(\delta E - \Omega \delta L) = - u^\alpha u^t (\delta E - \Omega \delta L)
+  \end{equation}
+  contracting the above with $u_\alpha$ gives
+  \begin{equation}
+    \label{eq:u_alpha-delta-u^alpha}
+    u_\alpha \delta u^\alpha = u^t(\delta E - \Omega \delta L)
+  \end{equation}
+  Now, since $u_\alpha u^\alpha = -1$, variation of it should vanish which implies $u_\alpha \delta u^\alpha = 0$. This provides the relation
+  \begin{equation}
+    \label{eq:deltaE-deltaL}
+    \boxed{\delta E = \Omega \delta L}.
+  \end{equation}
+\end{enumerate}
+\end{document}
