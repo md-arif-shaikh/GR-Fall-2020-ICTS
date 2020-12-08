@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[fleqn]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -18,13 +18,86 @@
 \item[3.] Prove that
   \begin{equation}
     \label{eq:Killing-vectors-sph}
-    \xi^\alpha_{1} = \sin\phi\partial_\theta + \cot\theta\cos\phi\partial_\phi\qquad \xi^\alpha_{2} = - \cos\phi\partial_\theta + \cot\theta\sin\phi\partial_\phi
+    \xi^{1} = \sin\phi\partial_\theta + \cot\theta\cos\phi\partial_\phi\qquad \xi^{2} = - \cos\phi\partial_\theta + \cot\theta\sin\phi\partial_\phi
   \end{equation}
   are the Killing vectors of the spherically symmetric spacetime
   \begin{equation}
     \label{eq:line-element-spherically-symmetric}
     ds^2 = -A(r)dt^2 + B(r)dr^2 + r^2 (d\theta^2 + \sin^2\theta d\phi^2)
   \end{equation}
+  \noindent {\bfseries Answer:} Killing vectors satisfy the Killing equation
+  \begin{equation}
+    \label{eq:Killing-equation}
+    \nabla_\alpha \xi_\beta + \nabla_\beta \xi_\alpha = 0.
+  \end{equation}
+  Thus we need to show that $\nabla_\alpha\xi_\beta$ is an anti-symmetric tensor. We do it for $\xi^1$. The contravariant components are
+  \begin{equation}
+    \label{eq:contravariant-xi1}
+    \xi^1_t = \xi^1_r = 0,\quad \xi^1_\theta = g_{\theta\theta}\xi^{1\theta} = r^2\sin\phi,\quad\xi^1_{\phi} = g_{\phi\phi}\xi^{1\phi} = r^2\sin^2\theta \cot\theta\cos\phi = r^2\sin\theta\cos\theta\cos\phi.
+  \end{equation}
+  Since only $\xi_\theta$ and $\xi_\phi$ are non-vanishing, the relevant Christofell symbols are $\Gamma^\theta_{\alpha\beta}$ and $\Gamma^\phi_{\alpha\beta}$. These we get from the geodesic equation for $\theta$ and $\phi$ using $\mathcal{L}^2 = (1/2)g_{\alpha\beta}\dot{x}^\alpha\dot{x}^\beta$ as the Lagrangian. For $\theta$, we have
+  \begin{equation}
+    \label{eq:theta-e-o-m}
+    \ddot{\theta} + \frac{2}{r}\dot{r}\dot{\theta} - \sin\theta\cos\theta\ddot{\phi} = 0,
+  \end{equation}
+  which provides
+  \begin{equation}
+    \label{eq:Gamma-theta}
+    \Gamma^\theta_{r\theta} = \frac{1}{r},\quad\Gamma^\theta_{\phi\phi} = - \sin\theta\cos\theta.
+  \end{equation}
+  Similarly for $\phi$,
+  \begin{equation}
+    \label{eq:phi-e-o-m}
+    \ddot{\phi} + \frac{2}{r}\dot{r}\dot{\phi}+2\cot\theta\dot{\theta}\dot{\phi} = 0,
+  \end{equation}
+  which provides
+  \begin{equation}
+    \label{eq:Gamma-phi}
+    \Gamma^\phi_{r\phi}= \frac{1}{r},\quad\Gamma^\phi_{\theta\phi} = \cot\theta.
+  \end{equation}
+  Now that we have the required Christofell symbols, we check that $\nabla_\alpha\xi^1_\beta$ is an anti-symmetric tensor.
+  \begin{align*}
+    \boxed{\nabla_t\xi^1_t = \nabla_r\xi^1_r = 0}
+  \end{align*}
+  trivially. and
+  \begin{align*}
+    \boxed{\nabla_\theta\xi^1_\theta = 0,\quad \nabla_\phi\xi^1_\phi = \partial_\phi\xi^1_\phi - \Gamma^\phi_{\phi\phi} = 0}
+  \end{align*}
+  $\nabla_t \xi^1_r = - \nabla_r\xi^1_t = 0$. $\nabla_t\xi^1_\theta = 0 = - \nabla_\theta\xi^1_t$. $\nabla_t\xi^1_\phi = 0 = - \nabla_\phi\xi^1_t$.
+  \begin{align*}
+    \nabla_r\xi^1_\theta
+    & = \partial_r\xi^1_\theta - \Gamma^{\theta}_{r\theta}\xi^1_\theta\\
+    & = 2r\sin\phi - \frac{1}{r}r^2 \sin\phi = r\sin\phi.
+  \end{align*}
+  \begin{align*}
+    \boxed{\nabla_\theta\xi^1_r = - \Gamma^\theta_{r\theta}\xi^1_\theta = - r\sin\phi = - \nabla_r\xi^1_\theta}.
+  \end{align*}
+  \begin{align*}
+    \nabla_r\xi^1_\phi
+    & = \partial_r\xi^1_\phi - \Gamma^\phi_{r\phi}\xi^1_\phi\\
+    & = 2r\sin\theta\cos\theta\cos\phi - \frac{1}{r} r^2\sin\theta\cos\theta\cos\phi\\
+    & = r\sin\theta\cos\theta\cos\phi.
+  \end{align*}
+  \begin{align*}
+    \boxed{\nabla_\phi\xi^1_r = - \Gamma^\phi_{r\phi}\xi^1_\phi = - r\sin\theta\cos\theta\cos\phi = - \nabla_r\xi^1_\phi}.
+  \end{align*}
+  \begin{align*}
+    \nabla_\theta\xi^1_\phi
+    & = \partial_\theta\xi^1_\phi - \Gamma^\phi_{\theta\phi}\xi^1_\phi\\
+    & = r^2\cos 2\theta\cos\phi - \cot\theta r^2\sin\theta\cos\theta\cos\phi.\\
+    & = r^2\cos\phi(\cos2\theta - \cos^2\theta)\\
+    & = r^2\cos\phi(-\sin^2\theta)
+  \end{align*}
+  \begin{align*}
+    \nabla_\phi\xi^1_\theta
+    & = \partial_\phi\xi^1_\theta - \Gamma_{\theta\phi}^\phi\xi^1_\phi\\
+    & = r^2\cos\phi - \cot\theta r^2\sin\theta\cos\theta\cos\phi\\
+    & = r^2\cos\phi(1 - \cos^2\theta)\\
+    & = r^2\cos\phi\sin^2\theta\\
+    & \Rightarrow\boxed{\nabla_\phi\xi^1_\theta = - \nabla_\theta\xi^1_\phi}
+  \end{align*}
+
+  Similarly, we can check for $\xi^2$.
   
 \item[4.] A particle with electric charge $e$ moves in a spacetime with metric $g_{\alpha\beta}$ in the presence of a vector potential $A_\alpha$. The equations of motion are $u^\beta \nabla_\beta u_\alpha = e F_{\alpha\beta}u^\beta$, where $u^\alpha$ is the four-velocity and $F_{\alpha\beta}=\nabla_\alpha A_\beta - \nabla_\beta A_\alpha$. It is assumed that the spacetime possesses a Killing vector $\xi^\alpha$, so that $\pounds_\xi g_{\alpha\beta} = \pounds_\xi A_\alpha = 0$. Prove that
   \begin{equation}
